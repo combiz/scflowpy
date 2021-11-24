@@ -20,3 +20,4 @@ def read_sce(folder_path):
     <output_1>: <data_type>
         <output_1_description>
     """
+    print("hello world")

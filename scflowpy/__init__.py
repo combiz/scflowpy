@@ -3,3 +3,6 @@
 __author__ = """Combiz Khozoie"""
 __email__ = 'c.khozoie@imperial.ac.uk'
 __version__ = '0.1.0'
+
+from .read_sce import *
+from .scflowpy import *
