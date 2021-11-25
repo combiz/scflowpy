@@ -62,6 +62,22 @@ def read_sce(folder_path):
     adata.var = rowdata
     adata.var_names = adata.var["gene"]
 
+    # convert data.frame column data type to pandas equivalent
+    print("Reading column classes:", paths_d['col_classes'])
+    coltypes = pd.read_csv(paths_d['col_classes'], header=None, sep='\t')
+    r2py_types_map_d = {
+        'factor' : 'category',
+        'character' : 'category',
+        'integer' : 'int64',
+        'numeric' : 'float',
+        'logical' : 'boolean'
+    }
+
+    for col in coltypes[0].values:
+        old_type = coltypes.loc[coltypes[0] == col][1].values[0]
+        new_type = r2py_types_map_d[old_type]
+        adata.obs[col] = adata.obs[col].astype(new_type)
+
     # generate dictionary of reduced_dim_name : file_path
     rd_files = [folder_path / filename for filename in os.listdir(folder_path) if filename.startswith("ReducedDim_")]
     rd_files_d = dict.fromkeys(rd_files)
@@ -76,17 +92,6 @@ def read_sce(folder_path):
         print("Reading embedding:", rd_files_d[rd_name])
         rd_df = pd.read_csv(rd_files_d[rd_name], header=0, sep='\t')
         adata.obsm[rd_name] = rd_df.values
-
-    #coltypes = pd.read_csv("/home/ckhozoie/Documents/junk/final_sce/scecoldata_classes.tsv", header=0, sep='\t')
-    #r2py_types_map_d = {
-    #    'factor': 'category',
-    #    'character': 'category',
-    #    'integer': 'int64',
-    #    'numeric': 'float'
-    #}
-
-    #for col in ['parks', 'playgrounds', 'sports', 'roading']:
-    #    public[col] = public[col].astype('category')
 
     print("Imported SingleCellExperiment as AnnData Object")
 
