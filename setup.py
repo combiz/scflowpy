@@ -17,7 +17,7 @@ test_requirements = [ ]
 setup(
     author="Combiz Khozoie",
     author_email='c.khozoie@imperial.ac.uk',
-    python_requires='>=3.6'
+    python_requires='>=3.6',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
