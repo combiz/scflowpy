@@ -23,7 +23,7 @@ from rich.markdown import Markdown  # for rich terminal text
 
 
 # modules
-def read_sce(folder_path):!!!TEST!!!
+def read_sce(folder_path):
     """Read a scFlow SingleCellExperiment from a folder into an AnnData Object
     Parameters
     ---------
