@@ -26,4 +26,4 @@ deploy:
   on:
     tags: true
     repo: combiz/scflowpy
-    python: 3.8
+    python: 3.9

@@ -13,3 +13,5 @@ PyHamcrest
 pathlib
 pandas
 black
+isort
+flake

@@ -14,7 +14,7 @@ scflowpy
 
 scFlowPy is a helper package to bridge scFlow with the Python ecosystem.
 A typical use case is to allow tertiary scRNAseq analyses on scFlow outputs
-using Python tools (e.g. Tensorflow, PyTorch, Scanpy, `and many others <https://github.com/seandavi/awesome-single-cell>`_).
+using Python tools (e.g. Tensorflow, PyTorch, Scanpy, `and others <https://github.com/seandavi/awesome-single-cell>`_).
 
 The core function currently is ``read_sce()``, allowing any SingleCellExperiment object output by
 scFlow (or by the nf-core/scflow pipeline) to be read into the Annotated data
