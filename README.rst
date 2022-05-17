@@ -5,8 +5,9 @@ scflowpy
 .. image:: https://img.shields.io/pypi/v/scflowpy.svg
         :target: https://pypi.python.org/pypi/scflowpy
 
-.. image:: https://img.shields.io/travis/combiz/scflowpy.svg
-        :target: https://travis-ci.com/combiz/scflowpy
+.. image:: https://github.com/combiz/scflowpy/workflows/CI/badge.svg?branch=main
+     :target: https://github.com/combiz/scflowpy/actions?workflow=CI
+     :alt: CI Status
 
 .. image:: https://readthedocs.org/projects/scflowpy/badge/?version=latest
         :target: https://scflowpy.readthedocs.io/en/latest/?version=latest
