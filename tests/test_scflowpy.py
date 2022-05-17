@@ -3,11 +3,6 @@
 """Tests for `scflowpy` package."""
 
 
-import unittest
-
-from scflowpy import scflowpy
-
-
 class TestScflowpy(unittest.TestCase):
     """Tests for `scflowpy` package."""
 
@@ -19,3 +14,4 @@ class TestScflowpy(unittest.TestCase):
 
     def test_000_something(self):
         """Test something."""
+        print("Test")
