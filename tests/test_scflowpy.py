@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 """Tests for `scflowpy` package."""
+import unittest
 
 
 class TestScflowpy(unittest.TestCase):
