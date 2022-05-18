@@ -6,10 +6,3 @@ History
 ------------------
 
 * Released on PyPi
-
-0.1.0 (2021-11-23)
-------------------
-
-* First version written for internal use
-
-
