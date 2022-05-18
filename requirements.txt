@@ -14,4 +14,4 @@ pathlib
 pandas
 black
 isort
-flake
+flake8
