@@ -10,7 +10,28 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [ ]
+requirements = [
+    anndata==0.8,
+    rich==10.15.2,
+    pip==22.1,
+    bump2version==0.5.11,
+    wheel==0.33.6,
+    watchdog==0.9.0,
+    flake8==3.7.8,
+    tox==3.14.0,
+    coverage==4.5.4,
+    Sphinx==4.2.0,
+    sphinx_rtd_theme==1.0.0,
+    readthedocs-sphinx-search==0.1.1,
+    twine==1.14.0,
+    PyHamcrest,
+    pathlib,
+    pandas,
+    black,
+    isort,
+    flake8,
+    MarkupSafe
+]
 
 test_requirements = [ ]
 
@@ -47,6 +68,6 @@ setup(
     tests_require=test_requirements,
     url='https://github.com/combiz/scflowpy',
     setup_requires=['flake8'],
-    version='0.7.3',
+    version='0.7.4',
     zip_safe=False,
 )
