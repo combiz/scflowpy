@@ -11,26 +11,26 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    anndata,
-    rich,
-    pip,
-    bump2version,
-    wheel,
-    watchdog,
-    flake8,
-    tox,
-    coverage,
-    Sphinx,
-    sphinx_rtd_theme,
-    readthedocs-sphinx-search,
-    twine,
-    PyHamcrest,
-    pathlib,
-    pandas,
-    black,
-    isort,
-    flake8,
-    MarkupSafe
+    "anndata",
+    "rich",
+    "pip",
+    "bump2version",
+    "wheel",
+    "watchdog",
+    "flake8",
+    "tox",
+    "coverage",
+    "Sphinx",
+    "sphinx_rtd_theme",
+    "readthedocs-sphinx-search",
+    "twine",
+    "PyHamcrest",
+    "pathlib",
+    "pandas",
+    "black",
+    "isort",
+    "flake8",
+    "MarkupSafe"
 ]
 
 test_requirements = [ ]
