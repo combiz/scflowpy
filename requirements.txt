@@ -1,5 +1,5 @@
 anndata==0.8
-rich==10.15.2
+rich==12.4.1
 pip==22.1
 bump2version==0.5.11
 wheel==0.33.6
