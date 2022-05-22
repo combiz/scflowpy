@@ -68,6 +68,6 @@ setup(
     tests_require=test_requirements,
     url='https://github.com/combiz/scflowpy',
     setup_requires=['flake8'],
-    version='0.7.4',
+    version='0.7.5',
     zip_safe=False,
 )
