@@ -2,6 +2,10 @@
 scflowpy
 ========
 
+.. image:: https://pyup.io/repos/github/combiz/scflowpy/shield.svg
+    :target: https://pyup.io/repos/github/combiz/scflowpy/
+    :alt: Updates
+
 .. image:: https://img.shields.io/pypi/v/scflowpy.svg
         :target: https://pypi.python.org/pypi/scflowpy
 
