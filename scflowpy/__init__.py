@@ -6,5 +6,3 @@ __version__ = '0.7.5'
 
 from .read_sce import read_sce
 __all__ = ['read_sce', ]
-
-
