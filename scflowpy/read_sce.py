@@ -13,13 +13,13 @@ Created:
 
 # imports
 import os
-from pathlib import Path  # for file path validation
+from pathlib import Path
 
-import pandas as pd  # to handle tsv files
-from anndata import read_mtx  # for generating the AnnData object
-from hamcrest import assert_that, instance_of  # for validation checks
-from rich import print  # for rich terminal text
-from rich.markdown import Markdown  # for rich terminal text
+import pandas as pd
+from anndata import read_mtx
+from hamcrest import assert_that, instance_of
+from rich import print
+from rich.markdown import Markdown
 
 
 # modules
@@ -36,12 +36,35 @@ def read_sce(folder_path):
         An :class:`~anndata.AnnData` object
     """
 
-    print(Markdown("# Reading SingleCellExperiment"))
+    print(Markdown("**Reading SingleCellExperiment**"))
 
     # input folder checks
     assert_that(folder_path, instance_of(str))
     folder_path = Path(folder_path)
     assert_that(folder_path.is_dir(), True)
+
+    adata = _read_sce_mtxandmeta(folder_path)
+    adata = _read_sce_reduceddims(folder_path, adata)
+
+    print("Imported SingleCellExperiment as AnnData Object")
+
+    return adata
+
+
+def _read_sce_mtxandmeta(folder_path):
+    """Read the sparse matrix and metadata for a scFlow SingleCellExperiment
+    from a folder into an AnnData Object
+
+    Parameters
+    ---------
+    folder_path: str
+        Folder path to the previously saved SingleCellExperiment from scFlow
+
+    Returns
+    ---------
+    adata: AnnData
+        An :class:`~anndata.AnnData` object
+    """
 
     paths_d = {
         "all_coldata": folder_path / "sce-coldata.tsv",
@@ -85,6 +108,28 @@ def read_sce(folder_path):
         new_type = r2py_types_map_d[old_type]
         adata.obs[col] = adata.obs[col].astype(new_type, errors="ignore")
 
+    return adata
+
+
+def _read_sce_reduceddims(folder_path, adata):
+    """Read the reduced dimension embeddings for a scFlow SingleCellExperiment
+    from a folder into an AnnData Object
+
+    Parameters
+    ---------
+    folder_path: str
+        Folder path to the previously saved SingleCellExperiment from scFlow
+
+    adata: AnnData
+        An :class:`~anndata.AnnData` object with the matrix and metadata
+
+    Returns
+    ---------
+    adata: AnnData
+        An :class:`~anndata.AnnData` object appended with reduced dimension
+         matrices (if any)
+    """
+
     # generate dictionary of reduced_dim_name : file_path
     rd_files = [
         folder_path / filename
@@ -105,7 +150,5 @@ def read_sce(folder_path):
         print("Reading embedding:", rd_files_d[rd_name])
         rd_df = pd.read_csv(rd_files_d[rd_name], header=0, sep="\t")
         adata.obsm[rd_name] = rd_df.values
-
-    print("Imported SingleCellExperiment as AnnData Object")
 
     return adata
